@@ -10,16 +10,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model empleado {
-  id_empleado Int     @id @default(autoincrement())
+model empleados {
+  id_empleado Int      @id @default(autoincrement())
   nombre      String
   puesto      String
-  tareas      tarea[]
+  tareas      tareas[]
 }
 
-model tarea {
-  id_tarea          Int      @id @default(autoincrement())
-  descripcion       String
-  empleado_asignado empleado @relation(fields: [id_empleado], references: [id_empleado])
-  id_empleado       Int
+model tareas {
+  id_tarea             Int       @id @default(autoincrement())
+  descripcion          String
+  empleado_asignado    empleados @relation(fields: [id_empleado_asignado], references: [id_empleado])
+  id_empleado_asignado Int
 }

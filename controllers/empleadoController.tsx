@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'GET') {
         try {
-            const empleados = await prisma.empleado.findMany();
+            const empleados = await prisma.empleados.findMany();
             res.status(200).json(empleados);
         } catch (error) {
             console.error(error);
